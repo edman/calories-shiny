@@ -1,1 +1,213 @@
-My Github Page
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wanna Lose Weight?</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Wanna Lose Weight?">
+  <meta name="author" content="Edman P. Anjos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Wanna Lose Weight?</h1>
+    <h2>A calorie consumption calculator made with R and Shiny</h2>
+    <p>Edman P. Anjos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Wanna lose Weight?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Losing weight is easier than you imagine.</li>
+<li>The human body consumes an specific amount of calories per day.</li>
+<li>Consuming less calories than said amount will create an energy deficit.</li>
+<li>In order to make up for that, our body will fall back and use the energy
+previously stored as fat (for the harsh times).</li>
+<li>Do this a few days in a row and even your friends will see the difference.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Then how many calories should I take?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The number of calories consumed by your body depends on several factors,
+including:</p>
+
+<ul>
+<li>Weight</li>
+<li>Age</li>
+<li>Height</li>
+<li>Gender</li>
+<li>Average amount of physical activities done throughout the week</li>
+</ul></li>
+<li><p>Consume more than this amount and you will gain weight</p></li>
+<li><p>Consume exactly this amount and you will maintain your weight</p></li>
+<li><p>Consume less than this amount and you will lose weight</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>And how exactly does it work?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>It&#39;s just science: we apply the <a href="http://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation">Harris-Benedict
+formula</a>.</p></li>
+<li><p>First we compute your basal metabolic rate (\(BMR\)), that is what your body
+consumes just for its natural functions (without any physical activity
+included).</p>
+
+<ul>
+<li>For a man, the equation to calculate the \(BMR\) is as follows
+\[BMR = 88.362 + (13.397 W) + (4.799 H) - (5.677 A)\]</li>
+<li>Being \(W\) the weight in kilograms, \(H\) the height in centimeters and \(A\)
+the age in years.</li>
+</ul></li>
+<li><p>Then we use the Harris-Benedict principle to mix in the equation the
+calories consumed according to the amount of exercise you practice in a week.</p>
+
+<ul>
+<li>For a person who practices little to no exercise, the daily calorie
+consumption is
+\[KCal = 1.2 BMR\]</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>I&#39;m almost convinced, now show me the numbers</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Let&#39;s calculate the daily calorie consumption of a 21-year-old, 73kg man
+who is 182cm tall and hits the gym some four days per week.</li>
+</ul>
+
+<pre><code class="r">bmr &lt;- 88.362 + (13.397 * 73) + (4.799 * 182) - (5.677 * 21)
+</code></pre>
+
+<pre><code>## [1] 1821
+</code></pre>
+
+<ul>
+<li>Our friend&#39;s BMR is <code>1820.544</code>. That&#39;s what his body consumes just for its
+natural functions.</li>
+<li>Now let&#39;s add in the equation the amount of exercise he practices per week</li>
+</ul>
+
+<pre><code class="r">kcal &lt;-  1.55 * bmr
+</code></pre>
+
+<pre><code>## [1] 2822
+</code></pre>
+
+<ul>
+<li>That&#39;s the number our guy needs to know: <code>2821.8432</code> is his actual daily
+calorie consumption. In order to lose weight he has to consume less than that
+everyday.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Wanna lose Weight?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Then how many calories should I take?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='And how exactly does it work?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='I&#39;m almost convinced, now show me the numbers'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -1,0 +1,87 @@
+---
+title       : Wanna Lose Weight?
+subtitle    : A calorie consumption calculator made with R and Shiny
+author      : Edman P. Anjos
+job         : 
+framework   : io2012
+highlighter : highlight.js
+hitheme     : tomorrow
+widgets     : [mathjax]
+mode        : selfcontained
+---
+
+## Wanna lose Weight?
+
+- Losing weight is easier than you imagine.
+- The human body consumes an specific amount of calories per day.
+- Consuming less calories than said amount will create an energy deficit.
+- In order to make up for that, our body will fall back and use the energy
+  previously stored as fat (for the harsh times).
+- Do this a few days in a row and even your friends will see the difference.
+
+---
+
+## Then how many calories should I take?
+
+- The number of calories consumed by your body depends on several factors,
+  including:
+  - Weight
+  - Age
+  - Height
+  - Gender
+  - Average amount of physical activities done throughout the week
+
+- Consume more than this amount and you will gain weight
+- Consume exactly this amount and you will maintain your weight
+- Consume less than this amount and you will lose weight
+
+---
+
+## And how exactly does it work?
+
+- It's just science: we apply the [Harris-Benedict
+  formula](http://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation).
+
+- First we compute your basal metabolic rate ($BMR$), that is what your body
+  consumes just for its natural functions (without any physical activity
+  included).
+  - For a man, the equation to calculate the $BMR$ is as follows
+    $$BMR = 88.362 + (13.397 W) + (4.799 H) - (5.677 A)$$
+  - Being $W$ the weight in kilograms, $H$ the height in centimeters and $A$
+    the age in years.
+
+- Then we use the Harris-Benedict principle to mix in the equation the
+  calories consumed according to the amount of exercise you practice in a week.
+  - For a person who practices little to no exercise, the daily calorie
+    consumption is
+	$$KCal = 1.2 BMR$$
+
+---
+
+## I'm almost convinced, now show me the numbers
+
+- Let's calculate the daily calorie consumption of a 21-year-old, 73kg man
+  who is 182cm tall and hits the gym some four days per week.
+
+```{r}
+bmr <- 88.362 + (13.397 * 73) + (4.799 * 182) - (5.677 * 21)
+```
+```{r, echo=FALSE}
+bmr
+```
+
+- Our friend's BMR is ```r bmr ```. That's what his body consumes just for its
+  natural functions.
+- Now let's add in the equation the amount of exercise he practices per week
+
+```{r}
+kcal <-  1.55 * bmr
+```
+```{r, echo=FALSE}
+kcal
+```
+
+- That's the number our guy needs to know: ```r kcal ``` is his actual daily
+  calorie consumption. In order to lose weight he has to consume less than that
+  everyday.
+
