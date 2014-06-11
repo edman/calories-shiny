@@ -3,7 +3,7 @@ library(shiny)
 
 shinyUI(fluidPage(
   titlePanel('Wanna lose weight?')
-  ,h3('Daily Calorie Intake Calculator')
+  ,h3('Daily Calorie Consumption Calculator')
 
   ,sidebarLayout(
     sidebarPanel(

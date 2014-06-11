@@ -51,8 +51,7 @@ hb.principle <- function(bmr, activity.level) {
   return(result)
 }
 
-# Calculates an individual's recommended daily calorie intake to maintain
-# weight
+# Calculates an individual's daily calorie consumption
 daily.kilocalories <- function(gender, height, age, weight, activity.level) {
   rate <- bmr(gender, height, age, weight)
   calories <- hb.principle(rate, activity.level)
