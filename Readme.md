@@ -8,3 +8,7 @@ information** (like age and weight) at the panel on the left. A
 **confirmation** of the input will be displayed on the right, and, below it, the
 **daily calorie intake** for maintaining weight.
 
+See this project on [github](http://github.com/edman/calories-shiny). You may
+also take a look at an html5 presentation written as a pitch for this
+application [here](http://edman.github.io/calories-shiny/#1).
+
